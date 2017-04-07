@@ -1,7 +1,7 @@
 {
   "name": "generator-helma-mvp",
   "version": "0.0.1",
-  "description": "simple android mvp generator",
+  "description": "android mvp generator",
   "homepage": "abbas.oveissi.ir",
   "author": {
     "name": "Abbas Oveissi",
@@ -46,6 +46,6 @@
       "node": true
     }
   },
-  "repository": "د/generator-helma",
+  "repository": "abbas-oveissi/generator-helma-mvp",
   "license": "Apache-2.0"
 }
