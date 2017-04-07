@@ -1,4 +1,4 @@
-# generator-helma
+# generator-helma-mvp
 > simple android mvp generator
 
 ## Installation
