@@ -2,11 +2,11 @@
   "name": "generator-helma-mvp",
   "version": "0.0.1",
   "description": "android mvp generator",
-  "homepage": "abbas.oveissi.ir",
+  "homepage": "https://github.com/abbas-oveissi/generator-helma-mvp",
   "author": {
     "name": "Abbas Oveissi",
     "email": "abbas.oveissi@gmail.com",
-    "url": "abbas.oveissi.ir"
+    "url": "https://github.com/abbas-oveissi"
   },
   "files": [
     "generators"
