@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="<%= appPackage %>">
+
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+  <application
+    android:name="<%= appPackage %>.<%= appName %>Application"
+    android:allowBackup="true"
+    android:icon="@mipmap/ic_launcher"
+    android:label="@string/app_name_en"
+    android:supportsRtl="true"
+    android:theme="@style/AppTheme">
+
+
+
+    <activity
+      android:name="<%= appPackage %>.features.main.MainActivity"
+      android:screenOrientation="portrait">
+
+    </activity>
+
+
+
+    <activity
+      android:name="<%= appPackage %>.features.category.CategoryActivity"
+      android:parentActivityName="<%= appPackage %>.features.main.MainActivity">
+    </activity>
+
+
+    <!--&lt;!&ndash; [START firebase_service] &ndash;&gt;-->
+    <!--<service android:name=".MyFirebaseMessagingService">-->
+    <!--<intent-filter>-->
+    <!--<action android:name="com.google.firebase.MESSAGING_EVENT"/>-->
+    <!--</intent-filter>-->
+    <!--</service>-->
+    <!--&lt;!&ndash; [END firebase_service] &ndash;&gt;-->
+    <!--&lt;!&ndash; [START firebase_iid_service] &ndash;&gt;-->
+    <!--<service android:name=".MyFirebaseInstanceIDService">-->
+    <!--<intent-filter>-->
+    <!--<action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>-->
+    <!--</intent-filter>-->
+    <!--</service>-->
+    <!--&lt;!&ndash; [END firebase_iid_service] &ndash;&gt;-->
+    <activity
+      android:name="<%= appPackage %>.features.splashscreen.SplashActivity"
+      android:screenOrientation="portrait">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+    </activity>
+
+
+    <!-- helmamvp-needle-manifest-add-activity -->
+
+  </application>
+
+</manifest>

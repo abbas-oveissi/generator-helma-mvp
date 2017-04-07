@@ -1,0 +1,33 @@
+<resources xmlns:xliff="http://schemas.android.com/tools">
+    <string name="app_name"><%= appName %></string>
+    <string name="app_name_en"><%= appName %></string>
+
+
+
+    <!-- splash activity start -->
+    <string name="splash_textview_title"><%= appName %></string>
+    <string name="splash_textview_subtitle">توضیح اضافه!</string>
+    <!-- splash activity end -->
+
+
+    <!-- navigation drawer start -->
+    <string name="menu_home">صفحه ی اصلی</string>
+    <string name="menu_iran">ایران</string>
+    <string name="menu_internation">بین المللی</string>
+    <string name="menu_perspolis">پرسپولیس</string>
+    <string name="menu_esteghlal">استقلال</string>
+    <string name="menu_about">درباره ی ما</string>
+    <string name="menu_olampics">ویدیوهای المپیک ۲۰۱۶</string>
+    <string name="menu_newspapers">روزنامه ها</string>
+
+    <string name="navigation_drawer_open">باز</string>
+    <string name="navigation_drawer_close">بسته</string>
+
+    <string name="tag_header">برچسب ویدیوها</string>
+    <string name="cat_header">دسته بندی ویدیوها</string>
+
+    <string name="navigation_drawer_title">ورود / عضویت</string>
+    <!-- navigation drawer end -->
+
+
+  </resources>

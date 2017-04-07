@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_marginLeft="50dp"
+    android:layout_marginRight="50dp"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+
+    <ProgressBar
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:id="@+id/animationLoading"
+        android:indeterminate="true"/>
+
+
+
+
+    <<%= appPackage %>.utils.customview.TextViewTypeFace
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="لطفا صبر کنید"
+        android:textSize="16sp"
+        app:fontName="shabnam_m"
+        android:textColor="#585858"
+        android:layout_marginRight="10dp"
+        android:layout_centerVertical="true"
+        android:id="@+id/tvLoadingTitle"
+        android:layout_toLeftOf="@id/animationLoading"/>
+</RelativeLayout>

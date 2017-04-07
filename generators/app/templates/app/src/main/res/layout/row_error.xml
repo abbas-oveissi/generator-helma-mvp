@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:id="@+id/llError"
+              android:padding="15dp"
+              android:background="@drawable/selector_error_loading"
+              android:layout_centerInParent="true"
+              android:orientation="vertical"
+              android:layout_centerHorizontal="true"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content">
+    <<%= appPackage %>.utils.customview.TextViewTypeFace
+        app:fontName="shabnam_m"
+        android:id="@+id/tvError"
+        android:textSize="18sp"
+        android:layout_gravity="center"
+        android:textColor="#f34527"
+        android:text="خطا در دریافت اطلاعات"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp" />
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:gravity="center_horizontal"
+        android:src="@drawable/ic_autorenew_black_24dp"
+        />
+    <!--android:shadowColor="#22000000"-->
+    <!--android:shadowDx="3"-->
+    <!--android:shadowDy="3"-->
+    <!--android:shadowRadius="1"-->
+
+
+</LinearLayout>

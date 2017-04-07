@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "139628218985",
+    "firebase_url": "https://aseio.com",
+    "project_id": "f5e62",
+    "storage_bucket": "flospot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1396282b2deb127dd3",
+        "android_client_info": {
+          "package_name": "colora"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "139628218985-srpsercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7O3e1e04AI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

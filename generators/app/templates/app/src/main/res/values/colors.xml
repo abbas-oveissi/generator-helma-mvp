@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3d255c</color>
+    <color name="colorPrimaryDark">#4a3c5c</color>
+    <color name="colorAccent">#47a156</color>
+    <color name="navigation_drawer_background">#F1F1F1</color>
+    <color name="transparent">#00ffffff</color>
+
+    <color name="colorError">#dc3134</color>
+
+    <color name="navigation_drawer_selected_background">#9ebfd4</color>
+    <color name="navigation_drawer_textcolor">#58595b</color>
+    <color name="navigation_drawer_seprator">#bebebe</color>
+
+    <color name="nav_drawer_normal_text">#3a3b3d</color>
+    <color name="nav_drawer_have_sub_text">#959998</color>
+    <color name="nav_drawer_selected_text">#099ce2</color>
+
+
+
+    <color name="textcolor_dafault">#58595b</color>
+    <color name="textcolor_gray">#aaabae</color>
+    <color name="textcolor_gray_dark">#7d7e81</color>
+
+
+
+    <color name="seekBarColor">#004169</color>
+    <color name="app_background">#efefef</color>
+
+    <color name="lighter_gray">#ffced0d1</color>
+    <color name="lightest_gray">#ffe2e3e4</color>
+    <color name="lightest_gray_with_alpha">#cce2e3e4</color>
+</resources>

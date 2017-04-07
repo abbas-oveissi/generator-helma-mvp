@@ -1,0 +1,44 @@
+ext {
+    minSdkVersion = <%= androidMinSdkVersion %>
+    compileSdkVersion = <%= androidTargetSdkVersion %>
+    buildToolsVersion = "<%= androidBuildToolsVersion %>"
+
+    androidSupportVersion = "<%= androidSupportVersion %>"
+
+    libraries = [
+            junit             : "junit:junit:4.12",
+            androidSupport4   : "com.android.support:support-v4:${androidSupportVersion}",
+            appCompat        : "com.android.support:appcompat-v7:${androidSupportVersion}",
+            designSupport    : "com.android.support:design:${androidSupportVersion}",
+            cardView         : "com.android.support:cardview-v7:${androidSupportVersion}",
+            recyclerView     : "com.android.support:recyclerview-v7:${androidSupportVersion}",
+
+            gson   : "com.google.code.gson:gson:2.6.2",
+            picasso   : "com.squareup.picasso:picasso:2.5.2",
+
+            butterknife      : "com.jakewharton:butterknife:8.0.1",
+            butterknifeCompiler: "com.jakewharton:butterknife-compiler:8.0.1",
+
+            dagger           : "com.google.dagger:dagger:2.4",
+            daggerCompiler     : "com.google.dagger:dagger-compiler:2.4",
+
+            rxjava           : "io.reactivex:rxjava:1.1.3",
+            rxandroid        : "io.reactivex:rxandroid:1.2.1",
+
+            okhttp3    : "com.squareup.okhttp3:okhttp:3.5.0",
+            okhttpLogging    : "com.squareup.okhttp3:logging-interceptor:3.5.0",
+            retrofit         : "com.squareup.retrofit2:retrofit:2.1.0",
+            retrofitConverter: "com.squareup.retrofit2:converter-gson:2.1.0",
+            retrofitAdapter  : "com.squareup.retrofit2:adapter-rxjava:2.1.0",
+
+            stetho : "com.facebook.stetho:stetho:1.3.1",
+            stethoInceptor : "com.facebook.stetho:stetho-okhttp3:1.3.1",
+
+            firebaseCore : 'com.google.firebase:firebase-core:9.4.0',
+            firebaseMessaging : 'com.google.firebase:firebase-messaging:9.4.0',
+
+            materialProgress : 'com.pnikosis:materialish-progress:1.7',
+            timber : 'com.jakewharton.timber:timber:4.5.1'
+    ]
+
+}

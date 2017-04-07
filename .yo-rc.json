@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Abbas Oveissi",
+      "authorEmail": "abbas.oveissi@gmail.com",
+      "authorUrl": "http://abbas.oveissi.ir"
+    }
+  }
+}

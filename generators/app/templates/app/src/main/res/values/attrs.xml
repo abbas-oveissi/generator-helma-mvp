@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="text" format="string" />
+    <attr name="image" format="integer" />
+    <attr name="fontName" format="string" />
+
+
+    <integer name="grid_span">1</integer>
+
+
+
+    <declare-styleable name="CustomEditText">
+        <attr name="image" />
+        <attr name="hint" format="string" />
+        <attr name="text"/>
+        <attr name="type" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomizerButton">
+        <attr name="text"/>
+        <attr name="subText" format="string" />
+        <attr name="image" />
+    </declare-styleable>
+
+    <declare-styleable name="TextViewTypeFace" >
+        <attr name="fontName"/>
+    </declare-styleable>
+       <declare-styleable name="ButtonTypeFace" >
+        <attr name="fontName" />
+    </declare-styleable>
+    <declare-styleable name="EditTextTypeFace" >
+        <attr name="fontName" />
+    </declare-styleable>
+</resources>
