@@ -82,7 +82,7 @@ module.exports = generator.extend({
     mkdirp('app/src/test/java/' + packageDir);
 
     // Copy files
-    this.fs.copy(this.templatePath('.gitignore'), this.destinationPath('.gitignore'));
+    this.fs.copy(this.templatePath('_gitignore'), this.destinationPath('.gitignore'));
     this.fs.copy(this.templatePath('build.gradle'), this.destinationPath('build.gradle'));
     this.fs.copy(this.templatePath('gradle.properties'), this.destinationPath('gradle.properties'));
     this.fs.copy(this.templatePath('gradlew.bat'), this.destinationPath('gradlew.bat'));
