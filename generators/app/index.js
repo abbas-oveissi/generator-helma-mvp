@@ -34,25 +34,25 @@ module.exports = generator.extend({
         name: 'targetSdk',
         message: 'What Android SDK will you be targeting?',
         store: true,
-        default: 25 // Android 6.0 (Marshmallow)
+        default: 25 // Android 7.1 (Nougat)
       },
       {
         name: 'minSdk',
         message: 'What is the minimum Android SDK you wish to support?',
         store: true,
-        default: 17 // Android 4.0 (Ice Cream Sandwich)
+        default: 17 // Android 4.2 (Jelly Bean)
       },
       {
         name: 'buildVersion',
         message: 'What is the Build Version you use?',
         store: true,
-        default: '25.0.2' // Android 4.0 (Ice Cream Sandwich)
+        default: '25.0.2' // Android 7.1 (Nougat)
       },
       {
         name: 'supportVersion',
         message: 'What is the Support Version Number?',
         store: true,
-        default: '23.4.0' // Android 4.0 (Ice Cream Sandwich)
+        default: '23.4.0' // Android 6.0 (Marshmallow)
       }];
 
     return this.prompt(prompts).then(props => {
