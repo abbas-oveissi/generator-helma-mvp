@@ -224,7 +224,7 @@ module.exports = generator.extend({
 
       AbbasUtils.rewriteFile({
         file: fullPathComponent,
-        needle: 'helma-needle-add-dagger-component',
+        needle: 'helmamvp-needle-add-dagger-component',
         splicable: [
           act
         ]
