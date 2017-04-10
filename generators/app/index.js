@@ -46,13 +46,13 @@ module.exports = generator.extend({
         name: 'buildVersion',
         message: 'What is the Build Version you use?',
         store: true,
-        default: '25.0.2' // Android 4.0 (Ice Cream Sandwich)
+        default: '25.0.2' // Android 6.0 (Marshmallow)
       },
       {
         name: 'supportVersion',
         message: 'What is the Support Version Number?',
         store: true,
-        default: '23.4.0' // Android 4.0 (Ice Cream Sandwich)
+        default: '23.4.0' // Android 6.0 (Marshmallow)
       }];
 
     return this.prompt(prompts).then(props => {
