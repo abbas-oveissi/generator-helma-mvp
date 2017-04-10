@@ -51,19 +51,19 @@ module.exports = generator.extend({
     const prompts = [
       {
         name: 'actname',
-        message: 'esme actvity besoorate Pascal, mesle:  OrderInfo',
+        message: 'esme actvity besoorate Pascal, mesle "OrderInfo" ?',
         store: true,
       },
       {
         name: 'actpackage',
-        message: 'masire package actvity az package e feature, mesle:  .user.order.orderinfo',
+        message: 'masire package actvity az package e feature, mesle ".user.order.orderinfo" ?',
         store: true,
       }];
 
     if(this.options['list']==true) {
       prompts.push( {
         name: 'listname',
-        message: 'esme list, mesle: UserBooks',
+        message: 'esme list, mesle "UserBooks" ?',
         store: true,
       });
     }
