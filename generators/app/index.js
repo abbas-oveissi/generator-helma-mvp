@@ -109,7 +109,7 @@ module.exports = generator.extend({
 
 
     this.fs.delete(this.destinationPath(this.props.appName + '/app/src/main/java/' + packageDir) + '/FloraShopApplication.java');
-    this.fs.copyTpl(this.templatePath('app/src/main/java/ir/harmas/temp/FloraShopApplication.java'), this.destinationPath(this.destinationPath(this.props.appName + '/app/src/main/java/' + packageDir) + '/' + this.props.appName + 'Application.java'), this.props);
+    this.fs.copyTpl(this.templatePath('app/src/main/java/ir/harmas/temp/FloraShopApplication.java'), this.destinationPath(this.destinationPath(this.props.appName + '/app/src/main/java/' + packageDir) + '/' + 'Application.java'), this.props);
 
     this.fs.move(this.destinationPath(this.contextRoot + '/.yo-rc.json'), this.destinationPath(this.props.appName + '/.yo-rc.json')); // copy .yo-rc.json to project root directory
 
