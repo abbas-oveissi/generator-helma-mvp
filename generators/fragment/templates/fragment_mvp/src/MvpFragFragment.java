@@ -11,8 +11,8 @@ import android.view.ViewGroup;
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
-import ir.oveissi.asghar.KobraApplication;
-import ir.oveissi.asghar.R;
+import <%= appPackage %>.<%= appName %>Application;
+import <%= appPackage %>.R;
 
 /**
  * Created by abbas.
