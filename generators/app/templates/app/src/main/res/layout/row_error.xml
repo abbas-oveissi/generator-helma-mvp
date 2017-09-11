@@ -10,8 +10,7 @@
               android:layout_centerHorizontal="true"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content">
-    <<%= appPackage %>.utils.customview.TextViewTypeFace
-        app:fontName="shabnam_m"
+    <TextView
         android:id="@+id/tvError"
         android:textSize="18sp"
         android:layout_gravity="center"

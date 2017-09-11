@@ -7,6 +7,7 @@ import <%= appPackage %>.di.AndroidModule;
 import <%= appPackage %>.di.ApplicationComponent;
 import <%= appPackage %>.di.DaggerApplicationComponent;
 import timber.log.Timber;
+  import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 
 /**
@@ -20,6 +21,13 @@ public class <%= appName %>Application extends Application {
         component = DaggerApplicationComponent.builder()
                 .androidModule(getAndroidModule())
                 .build();
+
+
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+        .setDefaultFontPath("fonts/shabnam_m.ttf")
+        .setFontAttrId(R.attr.fontPath)
+        .build()
+        );
 
         if (BuildConfig.DEBUG) {
             Timber.plant(new Timber.DebugTree());

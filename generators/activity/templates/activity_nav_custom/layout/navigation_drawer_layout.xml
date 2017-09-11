@@ -15,10 +15,9 @@
         android:background="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <<%= appPackage %>.utils.customview.TextViewTypeFace
+        <TextView
             android:id="@+id/tv"
             android:text="@string/app_name"
-            app:fontName="shabnam_b"
             android:textSize="20sp"
             android:textColor="#FFF"
             android:gravity="center"

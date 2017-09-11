@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 import <%= appPackage %>.R;
 
@@ -23,6 +24,11 @@ public class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
 
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+      super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 
 }

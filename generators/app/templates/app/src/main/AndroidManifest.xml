@@ -16,8 +16,7 @@
 
 
     <activity
-      android:name="<%= appPackage %>.features.category.CategoryActivity"
-      android:parentActivityName="<%= appPackage %>.features.main.MainActivity">
+      android:name="<%= appPackage %>.features.category.CategoryActivity">
     </activity>
 
 

@@ -6,13 +6,12 @@
                 android:background="@drawable/selector_navigation_drawer"
                 android:gravity="center_vertical">
 
-    <<%= appPackage %>.utils.customview.TextViewTypeFace
+    <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:gravity="center_vertical"
         android:layout_marginRight="25dp"
-        app:fontName="shabnam_b"
         android:textSize="12sp"
         android:textColor="@color/navigation_drawer_textcolor"
         android:layout_centerVertical="true"

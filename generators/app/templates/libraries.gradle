@@ -38,7 +38,9 @@ ext {
             firebaseMessaging : 'com.google.firebase:firebase-messaging:9.4.0',
 
             materialProgress : 'com.pnikosis:materialish-progress:1.7',
-            timber : 'com.jakewharton.timber:timber:4.5.1'
+            timber : 'com.jakewharton.timber:timber:4.5.1',
+
+            calligraphy : 'uk.co.chrisjenx:calligraphy:2.3.0'
     ]
 
 }

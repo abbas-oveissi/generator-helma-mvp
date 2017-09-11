@@ -19,17 +19,15 @@
             <!--android:padding="10dp"-->
             <!--android:layout_width="160dp"-->
             <!--android:layout_height="160dp"/>-->
-        <<%= appPackage %>.utils.customview.TextViewTypeFace
+        <TextView
             android:layout_width="wrap_content"
-            app:fontName="shabnam_m"
             android:textColor="#FFF"
             android:layout_gravity="center"
             android:textSize="27sp"
             android:text="@string/splash_textview_title"
             android:layout_height="wrap_content"/>
-        <<%= appPackage %>.utils.customview.TextViewTypeFace
+        <TextView
             android:layout_width="wrap_content"
-            app:fontName="shabnam_m"
             android:layout_gravity="center"
             android:textSize="23sp"
             android:textColor="#FFF"

@@ -31,12 +31,11 @@
                 android:background="#eeeeee"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
-            <<%= appPackage %>.utils.customview.TextViewTypeFace
+            <TextView
                 android:layout_width="wrap_content"
                 android:id="@+id/tvTime"
                 android:gravity="center"
                 android:text="۶ ساعت"
-                app:fontName="shabnam_m"
                 android:minWidth="70dp"
                 android:textSize="10sp"
                 android:textColor="#FFF"
@@ -52,12 +51,11 @@
 
         </FrameLayout>
 
-        <<%= appPackage %>.utils.customview.TextViewTypeFace
+        <TextView
             android:layout_width="wrap_content"
             android:id="@+id/tvCat"
             android:gravity="center"
             android:text="۶ ساعت"
-            app:fontName="shabnam_m"
 
             android:minWidth="70dp"
             android:layout_marginTop="-17dp"
@@ -72,11 +70,10 @@
 
 
 
-        <<%= appPackage %>.utils.customview.TextViewTypeFace
+        <TextView
             android:layout_width="match_parent"
             android:id="@+id/tvName"
             android:gravity="right"
-            app:fontName="shabnam_m"
             android:layout_below="@id/topframe"
             android:paddingTop="10dp"
             android:textColor="#3f4042"

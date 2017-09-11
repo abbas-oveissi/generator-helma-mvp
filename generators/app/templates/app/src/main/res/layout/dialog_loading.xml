@@ -22,12 +22,11 @@
 
 
 
-    <<%= appPackage %>.utils.customview.TextViewTypeFace
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="لطفا صبر کنید"
         android:textSize="16sp"
-        app:fontName="shabnam_m"
         android:textColor="#585858"
         android:layout_marginRight="10dp"
         android:layout_centerVertical="true"

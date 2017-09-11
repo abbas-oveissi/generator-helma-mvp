@@ -69,6 +69,7 @@ dependencies {
     compile rootProject.ext.libraries.materialProgress
     compile rootProject.ext.libraries.timber
 
+    compile rootProject.ext.libraries.calligraphy
 }
 
 android.applicationVariants.all { variant ->
