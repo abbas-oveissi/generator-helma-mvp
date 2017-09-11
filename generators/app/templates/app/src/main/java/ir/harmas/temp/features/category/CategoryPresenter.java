@@ -27,7 +27,8 @@ import <%= appPackage %>.interactors.MyInteractor;
 import rx.Observer;
 import rx.Subscription;
 import rx.subscriptions.CompositeSubscription;
-
+  import <%= appPackage %>.interactors.remote.error.GeneralApiException;
+  import timber.log.Timber;
 public class CategoryPresenter implements CategoryContract.Presenter {
 
     private MyInteractor myInteractor;
@@ -54,8 +55,12 @@ public class CategoryPresenter implements CategoryContract.Presenter {
 
                             @Override
                             public void onError(Throwable e) {
-                                Timber.d("onError");
-
+                              Timber.e("onError");
+                              e.printStackTrace();
+                              if (e instanceof GeneralApiException) {
+                                GeneralApiException generalApiException = (GeneralApiException) e;
+                                Timber.e(generalApiException.message());
+                              }
                             }
 
                             @Override
