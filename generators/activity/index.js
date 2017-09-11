@@ -83,32 +83,33 @@ module.exports = generator.extend({
     this.props.appPackage = this.config.get("appPackage");
     this.props.appName = this.config.get("appName");
     var sufixPackageDir = this.props.actvitiyPackageName.replace(/\./g, '/');
-    var justNameUnderScore=this.props.activityName.replace(/\.?([A-Z]+)/g, function (x,y){return "_" + y.toLowerCase()}).replace(/^_/, "")
-    this.props.activityNameUnScored=justNameUnderScore;
-    var justName=this.props.activityName;
-    mkdirp('app/src/main/java/'+packageDir+'/features/' +sufixPackageDir);
-    var fullpathToActivityPackage='app/src/main/java/'+packageDir+'/features/' +sufixPackageDir;
+    var justNameUnderScore = this.props.activityName.replace(/\.?([A-Z]+)/g, function (x, y) {
+      return "_" + y.toLowerCase()
+    }).replace(/^_/, "")
+    this.props.activityNameUnScored = justNameUnderScore;
+    var justName = this.props.activityName;
+    mkdirp('app/src/main/java/' + packageDir + '/features/' + sufixPackageDir);
+    var fullpathToActivityPackage = 'app/src/main/java/' + packageDir + '/features/' + sufixPackageDir;
 
-    this.props.haveList=false;
-    this.props.haveFrag=false;
+    this.props.haveList = false;
+    this.props.haveFrag = false;
 
-    if(this.options['nav-support']==true)
-    {
+    if (this.options['nav-support'] == true) {
 
       this.fs.copyTpl(this.templatePath('category_nav_support/CategoryComponent.java'),
-        this.destinationPath(fullpathToActivityPackage+'/'+justName+'Component.java'), this.props);
+        this.destinationPath(fullpathToActivityPackage + '/' + justName + 'Component.java'), this.props);
       this.fs.copyTpl(this.templatePath('category_nav_support/CategoryContract.java'),
-        this.destinationPath(fullpathToActivityPackage+'/'+justName+'Contract.java'), this.props);
+        this.destinationPath(fullpathToActivityPackage + '/' + justName + 'Contract.java'), this.props);
       this.fs.copyTpl(this.templatePath('category_nav_support/CategoryPresenter.java'),
-        this.destinationPath(fullpathToActivityPackage+'/'+justName+'Presenter.java'), this.props);
+        this.destinationPath(fullpathToActivityPackage + '/' + justName + 'Presenter.java'), this.props);
       this.fs.copyTpl(this.templatePath('category_nav_support/CategoryPresenterModule.java'),
-        this.destinationPath(fullpathToActivityPackage+'/'+justName+'PresenterModule.java'), this.props);
+        this.destinationPath(fullpathToActivityPackage + '/' + justName + 'PresenterModule.java'), this.props);
 
       this.fs.copyTpl(this.templatePath('category_nav_support/activity_category_content.xml'),
-        this.destinationPath('app/src/main/res/layout/activity_'+justNameUnderScore+'_content.xml'), this.props);
+        this.destinationPath('app/src/main/res/layout/activity_' + justNameUnderScore + '_content.xml'), this.props);
 
       this.fs.copy(this.templatePath('category_nav_support/nav_header_category.xml'),
-        this.destinationPath('app/src/main/res/layout/nav_header_'+justNameUnderScore+'.xml'));
+        this.destinationPath('app/src/main/res/layout/nav_header_' + justNameUnderScore + '.xml'));
 
       this.fs.copy(this.templatePath('category_nav_support/ic_menu_camera.xml'),
         this.destinationPath('app/src/main/res/drawable/ic_menu_camera.xml'));
@@ -116,31 +117,27 @@ module.exports = generator.extend({
         this.destinationPath('app/src/main/res/drawable/side_nav_bar.xml'));
 
 
-      if(this.options['nav-dynamic']==true) {
-        this.props.isDynamic=true;
+      if (this.options['nav-dynamic'] == true) {
+        this.props.isDynamic = true;
       }
-      else
-      {
-        this.props.isDynamic=false;
+      else {
+        this.props.isDynamic = false;
         this.fs.copy(this.templatePath('category_nav_support/activity_category_drawer.xml'),
-          this.destinationPath('app/src/main/res/menu/activity_'+justNameUnderScore+'_drawer.xml'));
+          this.destinationPath('app/src/main/res/menu/activity_' + justNameUnderScore + '_drawer.xml'));
       }
 
       this.fs.copyTpl(this.templatePath('category_nav_support/CategoryActivity.java'),
-        this.destinationPath(fullpathToActivityPackage+'/'+justName+'Activity.java'), this.props);
+        this.destinationPath(fullpathToActivityPackage + '/' + justName + 'Activity.java'), this.props);
       this.fs.copyTpl(this.templatePath('category_nav_support/activity_category.xml'),
-        this.destinationPath('app/src/main/res/layout/activity_'+justNameUnderScore+'.xml'), this.props);
-
-
+        this.destinationPath('app/src/main/res/layout/activity_' + justNameUnderScore + '.xml'), this.props);
 
 
     }
-    else
-    {
+    else {
 
-      if(this.options['list']==true) {
-        this.props.haveList=true;
-        this.props.haveFrag=false;
+      if (this.options['list'] == true) {
+        this.props.haveList = true;
+        this.props.haveFrag = false;
 
         var listNameUnderScore = this.props.listName.replace(/\.?([A-Z]+)/g, function (x, y) {
           return "_" + y.toLowerCase()
@@ -149,60 +146,48 @@ module.exports = generator.extend({
 
 
         this.fs.copyTpl(this.templatePath('category/Movie.java'),
-          this.destinationPath(fullpathToActivityPackage+'/Movie.java'), this.props);
+          this.destinationPath(fullpathToActivityPackage + '/Movie.java'), this.props);
         this.fs.copyTpl(this.templatePath('category/MovieAdapter.java'),
-          this.destinationPath(fullpathToActivityPackage+'/'+this.props.listName+'Adapter.java'), this.props);
+          this.destinationPath(fullpathToActivityPackage + '/' + this.props.listName + 'Adapter.java'), this.props);
 
         this.fs.copyTpl(this.templatePath('category/row_movie.xml'),
-          this.destinationPath('app/src/main/res/layout/row_'+listNameUnderScore+'.xml'), this.props);
+          this.destinationPath('app/src/main/res/layout/row_' + listNameUnderScore + '.xml'), this.props);
 
       }
-      else if (this.options['frag']==true){
+      else if (this.options['frag'] == true) {
         this.props.haveList = false;
         this.props.haveFrag = true;
 
         this.fs.copyTpl(this.templatePath('category/fragment_order.xml'),
           this.destinationPath('app/src/main/res/layout/fragment_order.xml'), this.props);
         this.fs.copyTpl(this.templatePath('category/OrderFragment.java'),
-          this.destinationPath(fullpathToActivityPackage+'/OrderFragment.java'), this.props);
+          this.destinationPath(fullpathToActivityPackage + '/OrderFragment.java'), this.props);
 
 
       }
 
       // Copy template files
       this.fs.copyTpl(this.templatePath('category/CategoryActivity.java'),
-        this.destinationPath(fullpathToActivityPackage+'/'+justName+'Activity.java'), this.props);
+        this.destinationPath(fullpathToActivityPackage + '/' + justName + 'Activity.java'), this.props);
       this.fs.copyTpl(this.templatePath('category/CategoryComponent.java'),
-        this.destinationPath(fullpathToActivityPackage+'/'+justName+'Component.java'), this.props);
+        this.destinationPath(fullpathToActivityPackage + '/' + justName + 'Component.java'), this.props);
       this.fs.copyTpl(this.templatePath('category/CategoryContract.java'),
-        this.destinationPath(fullpathToActivityPackage+'/'+justName+'Contract.java'), this.props);
+        this.destinationPath(fullpathToActivityPackage + '/' + justName + 'Contract.java'), this.props);
       this.fs.copyTpl(this.templatePath('category/CategoryPresenter.java'),
-        this.destinationPath(fullpathToActivityPackage+'/'+justName+'Presenter.java'), this.props);
+        this.destinationPath(fullpathToActivityPackage + '/' + justName + 'Presenter.java'), this.props);
       this.fs.copyTpl(this.templatePath('category/CategoryPresenterModule.java'),
-        this.destinationPath(fullpathToActivityPackage+'/'+justName+'PresenterModule.java'), this.props);
+        this.destinationPath(fullpathToActivityPackage + '/' + justName + 'PresenterModule.java'), this.props);
 
       this.fs.copyTpl(this.templatePath('category/activity_category.xml'),
-        this.destinationPath('app/src/main/res/layout/activity_'+justNameUnderScore+'.xml'), this.props);
-
-
+        this.destinationPath('app/src/main/res/layout/activity_' + justNameUnderScore + '.xml'), this.props);
 
 
     }
 
 
-
-
-
-
-
-
-
-
-
-
     const fullPath = 'app/src/main/AndroidManifest.xml';
     try {
-      let act='<activity android:name=".features'+this.props.actvitiyPackageName+'.'+justName+'Activity"></activity>';
+      let act = '<activity android:name=".features' + this.props.actvitiyPackageName + '.' + justName + 'Activity"></activity>';
 
       AbbasUtils.rewriteFile({
         file: fullPath,
@@ -214,13 +199,15 @@ module.exports = generator.extend({
     } catch (e) {
       this.log(e.message);
     }
-  //
-  //
-  //
-  //
-    const fullPathComponent = 'app/src/main/java/'+packageDir+'/di/ApplicationComponent.java';
+    //
+    //
+    //
+    //
+
+
+    const fullPathComponent = 'app/src/main/java/' + packageDir + '/di/ApplicationComponent.java';
     try {
-      let act=justName+'Component plus('+justName+'PresenterModule module);';
+      let act = justName + 'Component plus(' + justName + 'PresenterModule module);';
 
       AbbasUtils.rewriteFile({
         file: fullPathComponent,
@@ -232,9 +219,30 @@ module.exports = generator.extend({
     } catch (e) {
       this.log(e.message);
     }
+
+    try {
+      let act1 = 'import '+this.props.appPackage + '.features' + this.props.actvitiyPackageName + '.' + justName + 'Component;';
+      let act2 = 'import ' +this.props.appPackage +'.features' + this.props.actvitiyPackageName + '.' + justName + 'PresenterModule;';
+
+      AbbasUtils.rewriteFile({
+        file: fullPathComponent,
+        needle: 'helmamvp-needle-add-import-dagger-component',
+        splicable: [
+          act1
+        ]
+      }, this);
+
+      AbbasUtils.rewriteFile({
+        file: fullPathComponent,
+        needle: 'helmamvp-needle-add-import-dagger-component',
+        splicable: [
+          act2
+        ]
+      }, this);
+
+    } catch (e) {
+      this.log(e.message);
+    }
   }
-
-
-
 });
 

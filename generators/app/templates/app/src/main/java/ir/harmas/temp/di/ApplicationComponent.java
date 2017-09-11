@@ -16,6 +16,7 @@ import <%= appPackage %>.features.category.CategoryComponent;
 import <%= appPackage %>.features.category.CategoryPresenterModule;
 import <%= appPackage %>.features.main.MainActivityComponent;
 import <%= appPackage %>.features.main.MainActivityPresenterModule;
+// helmamvp-needle-add-import-dagger-component
 
 
 @Singleton
