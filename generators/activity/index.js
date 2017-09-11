@@ -94,6 +94,9 @@ module.exports = generator.extend({
     this.props.haveList = false;
     this.props.haveFrag = false;
 
+
+
+
     if (this.options['nav-support'] == true) {
 
       this.fs.copyTpl(this.templatePath('category_nav_support/CategoryComponent.java'),
@@ -131,6 +134,52 @@ module.exports = generator.extend({
       this.fs.copyTpl(this.templatePath('category_nav_support/activity_category.xml'),
         this.destinationPath('app/src/main/res/layout/activity_' + justNameUnderScore + '.xml'), this.props);
 
+
+    }
+    else  if (this.options['nav-custom'] == true) {
+
+      ///////////////////////////////////////////////////////////////////
+      //////////////        Activity With Custom Nav    /////////////////
+      ///////////////////////////////////////////////////////////////////
+
+
+      //src folder
+      this.fs.copyTpl(this.templatePath('activity_nav_custom/src/MainActivityComponent.java'),
+        this.destinationPath(fullpathToActivityPackage + '/' + justName + 'Component.java'), this.props);
+      this.fs.copyTpl(this.templatePath('activity_nav_custom/src/MainActivityContract.java'),
+        this.destinationPath(fullpathToActivityPackage + '/' + justName + 'Contract.java'), this.props);
+      this.fs.copyTpl(this.templatePath('activity_nav_custom/src/MainActivityPresenter.java'),
+        this.destinationPath(fullpathToActivityPackage + '/' + justName + 'Presenter.java'), this.props);
+      this.fs.copyTpl(this.templatePath('activity_nav_custom/src/MainActivityPresenterModule.java'),
+        this.destinationPath(fullpathToActivityPackage + '/' + justName + 'PresenterModule.java'), this.props);
+      this.fs.copyTpl(this.templatePath('activity_nav_custom/src/MainActivity.java'),
+        this.destinationPath(fullpathToActivityPackage + '/' + justName + 'Activity.java'), this.props);
+
+
+      //src -> drawer layout
+      this.fs.copyTpl(this.templatePath('activity_nav_custom/src/drawerlayout/NavigationAdapter.java'),
+        this.destinationPath(fullpathToActivityPackage + '/drawerlayout/NavigationAdapter.java'), this.props);
+      this.fs.copyTpl(this.templatePath('activity_nav_custom/src/drawerlayout/NavigationDrawerBuilder.java'),
+        this.destinationPath(fullpathToActivityPackage + '/drawerlayout/NavigationDrawerBuilder.java'), this.props);
+      this.fs.copyTpl(this.templatePath('activity_nav_custom/src/drawerlayout/NavigationItem.java'),
+        this.destinationPath(fullpathToActivityPackage + '/drawerlayout/NavigationItem.java'), this.props);
+
+
+      //layout
+      this.fs.copyTpl(this.templatePath('activity_nav_custom/layout/activity_main.xml'),
+        this.destinationPath('app/src/main/res/layout/activity_' + justNameUnderScore + '.xml'), this.props);
+      this.fs.copyTpl(this.templatePath('activity_nav_custom/layout/drawer_header.xml'),
+        this.destinationPath('app/src/main/res/layout/drawer_header.xml'), this.props);
+      this.fs.copyTpl(this.templatePath('activity_nav_custom/layout/drawer_item.xml'),
+        this.destinationPath('app/src/main/res/layout/drawer_item.xml'), this.props);
+      this.fs.copyTpl(this.templatePath('activity_nav_custom/layout/drawer_seprator.xml'),
+        this.destinationPath('app/src/main/res/layout/drawer_seprator.xml'), this.props);
+      this.fs.copyTpl(this.templatePath('activity_nav_custom/layout/navigation_drawer_layout.xml'),
+        this.destinationPath('app/src/main/res/layout/navigation_drawer_layout.xml'), this.props);
+
+
+      //////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////
 
     }
     else {
