@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import <%= appPackage %>..R;
+import <%= appPackage %>.R;
 
 /**
  * Created by abbas.
