@@ -44,7 +44,7 @@ public class MainActivity extends BaseActivity implements MainActivityContract.V
     ViewPager viewpager;
 
     @Inject
-    MainActivityContract.Presenter presenter;
+    MainActivityContract.Presenter mPresenter;
 
 
     @BindView(R.id.tabanim_tabs)
