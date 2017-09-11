@@ -24,9 +24,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import <%= appPackage %>.<%= appName %>Application;
 import <%= appPackage %>.R;
-import <%= appPackage %>.features.main.drawerlayout.NavigationAdapter;
-import <%= appPackage %>.features.main.drawerlayout.NavigationDrawerBuilder;
-import <%= appPackage %>.features.main.drawerlayout.NavigationItem;
+import <%= appPackage %>.features<%= actvitiyPackageName %>.drawerlayout.NavigationAdapter;
+import <%= appPackage %>.features<%= actvitiyPackageName %>.drawerlayout.NavigationDrawerBuilder;
+import <%= appPackage %>.features<%= actvitiyPackageName %>.drawerlayout.NavigationItem;
 import <%= appPackage %>.utils.bases.BaseActivity;
 
 public class <%= activityName %>Activity extends BaseActivity implements <%= activityName %>Contract.View {
@@ -60,7 +60,7 @@ public class <%= activityName %>Activity extends BaseActivity implements <%= act
     protected void onCreate(Bundle savedInstanceState) {
         <%= appName %>Application.getComponent().plus(new <%= activityName %>PresenterModule()).inject(this);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_<%= activityNameUnScored %>);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
         mPresenter.onViewAttached(this);
