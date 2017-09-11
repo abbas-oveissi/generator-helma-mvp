@@ -40,12 +40,14 @@ public class <%= activityName %>Activity extends BaseActivity implements <%= act
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        <%= appName %>Application.getComponent().plus(new <%= activityName %>PresenterModule()).inject(this);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_<%= activityNameUnScored %>);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
+        mPresenter.onViewAttached(this);
 
-        <%= appName %>Application.getComponent().plus(new <%= activityName %>PresenterModule()).inject(this);
 
 
         <% if (haveList) { %>
@@ -158,18 +160,12 @@ public class <%= activityName %>Activity extends BaseActivity implements <%= act
     @Override
     public void onStart() {
         super.onStart();
-        mPresenter.onViewAttached(this);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
         mPresenter.subscribe();
     }
 
     @Override
-    public void onPause() {
-        super.onPause();
+    public void onStop() {
+        super.onStop();
         mPresenter.unsubscribe();
     }
 

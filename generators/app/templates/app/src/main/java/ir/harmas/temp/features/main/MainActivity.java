@@ -58,34 +58,30 @@ public class MainActivity extends BaseActivity implements MainActivityContract.V
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        <%= appName %>Application.getComponent().plus(new MainActivityPresenterModule()).inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
+        mPresenter.onViewAttached(this);
 
         initNavigationDrawer();
         initToolbar();
 
-        <%= appName %>Application.getComponent().plus(new MainActivityPresenterModule()).inject(this);
 
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
 
     }
 
     @Override
     public void onStart() {
-        super.onStart();
-        presenter.onViewAttached(this);
+      super.onStart();
+      mPresenter.subscribe();
     }
 
- @Override
-    public void onPause() {
-        super.onPause();
-        presenter.unsubscribe();
+    @Override
+    public void onStop() {
+      super.onStop();
+      mPresenter.unsubscribe();
     }
 
 

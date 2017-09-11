@@ -40,10 +40,12 @@ public class CategoryActivity extends BaseActivity implements CategoryContract.V
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        <%= appName %>Application.getComponent().plus(new CategoryPresenterModule()).inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
+        mPresenter.onViewAttached(this);
 
 
 
@@ -61,7 +63,6 @@ public class CategoryActivity extends BaseActivity implements CategoryContract.V
 //            name=getIntent().getStringExtra("video_name");
 //        }
 
-        <%= appName %>Application.getComponent().plus(new CategoryPresenterModule()).inject(this);
         initRecyclerview();
         initToolbar();
 
@@ -109,22 +110,14 @@ public class CategoryActivity extends BaseActivity implements CategoryContract.V
 
     @Override
     public void onStart() {
-        super.onStart();
-        mPresenter.onViewAttached(this);
+      super.onStart();
+      mPresenter.subscribe();
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-        mPresenter.subscribe();
+    public void onStop() {
+      super.onStop();
+      mPresenter.unsubscribe();
     }
-
-
-
-    @Override
-       public void onPause() {
-           super.onPause();
-           mPresenter.unsubscribe();
-       }
 
 }
