@@ -49,18 +49,18 @@ public class CategoryPresenter implements CategoryContract.Presenter {
                         .subscribe(new Observer<String>() {
                             @Override
                             public void onCompleted() {
-                                Log.d("rxjava","onCompleted");
+                                Timber.d("onCompleted");
                             }
 
                             @Override
                             public void onError(Throwable e) {
-                                Log.d("rxjava","onError");
+                                Timber.d("onError");
 
                             }
 
                             @Override
                             public void onNext(String s) {
-                                Log.d("rxjava","onNext");
+                                Timber.d("onNext");
                             }
                         });
         mSubscriptions.add(subscription);

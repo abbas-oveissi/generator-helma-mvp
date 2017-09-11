@@ -15,12 +15,12 @@ package <%= appPackage %>.services;
 //        String link= remoteMessage.getData().get("link");
 //        String title= remoteMessage.getData().get("title");
 //        if(title==null)
-//            title="ورزش ۳ - غیررسمی";
+//            title="App Name";
 //
 //
 //        if(data==null||type==null||link==null)
 //        {
-//            Log.e("error","formate notif mohem nist");
+//            Timber.e("Invalid format");
 //            return;
 //        }
 //
