@@ -15,15 +15,6 @@
     android:theme="@style/AppTheme">
 
 
-
-    <activity
-      android:name="<%= appPackage %>.features.main.MainActivity"
-      android:screenOrientation="portrait">
-
-    </activity>
-
-
-
     <activity
       android:name="<%= appPackage %>.features.category.CategoryActivity"
       android:parentActivityName="<%= appPackage %>.features.main.MainActivity">

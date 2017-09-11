@@ -6,7 +6,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
 import <%= appPackage %>.R;
-import <%= appPackage %>.features.main.MainActivity;
+import <%= appPackage %>.features.category.CategoryActivity;
 
 public class SplashActivity extends AppCompatActivity {
 

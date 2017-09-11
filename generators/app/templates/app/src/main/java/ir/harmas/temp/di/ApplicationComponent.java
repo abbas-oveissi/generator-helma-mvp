@@ -14,8 +14,6 @@ import <%= appPackage %>.di.common.LoggerModule;
 import <%= appPackage %>.di.common.MyApiModule;
 import <%= appPackage %>.features.category.CategoryComponent;
 import <%= appPackage %>.features.category.CategoryPresenterModule;
-import <%= appPackage %>.features.main.MainActivityComponent;
-import <%= appPackage %>.features.main.MainActivityPresenterModule;
 // helmamvp-needle-add-import-dagger-component
 
 
@@ -35,7 +33,6 @@ import <%= appPackage %>.features.main.MainActivityPresenterModule;
 })
 public interface ApplicationComponent {
     CategoryComponent plus(CategoryPresenterModule module);
-    MainActivityComponent plus(MainActivityPresenterModule module);
 
     // helmamvp-needle-add-dagger-component
 }
