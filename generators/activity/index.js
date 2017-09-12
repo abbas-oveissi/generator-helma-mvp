@@ -21,6 +21,12 @@ module.exports = generator.extend({
       defaults: false
     });
 
+  this.option('nav-custom', {
+    desc: 'create activity with custom navigation drawer',
+    type: Boolean,
+    defaults: false
+  });
+
     this.option('nav-dynamic', {
       desc: 'navigation with dynamic items',
       type: Boolean,
