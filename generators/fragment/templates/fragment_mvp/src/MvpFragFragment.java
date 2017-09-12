@@ -50,7 +50,7 @@ public class <%= fragmentName %>Fragment extends Fragment implements <%= fragmen
         super.onAttach(context);
 
         //inject
-        KobraApplication.getComponent().plus(new <%= fragmentName %>PresenterModule()).inject(this);
+        <%= appName %>Application.getComponent().plus(new <%= fragmentName %>PresenterModule()).inject(this);
 
         if (context instanceof Activity){
             this.activity=(Activity) context;

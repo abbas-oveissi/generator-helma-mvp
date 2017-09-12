@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import static android.R.attr.id;
 
-public class <%= activityName %>Activity extends BaseActivity implements <%= activityName %>Contract.View <% if (haveFrag) { %>, OrderFragment.InteractorOrderFragment <% } %>{
+public class <%= activityName %>Activity extends BaseActivity implements <%= activityName %>Contract.View <% if (haveFrag) { %>, <%= fragmentName %>Fragment.Interactor<%= fragmentName %>Fragment <% } %>{
 
     @Inject
     public <%= activityName %>Contract.Presenter mPresenter;
@@ -63,19 +63,19 @@ public class <%= activityName %>Activity extends BaseActivity implements <%= act
 
 
         <% if (haveFrag) { %>
-                        showOrderFragment();
+        show<%= fragmentName %>Fragment();
 
                 <% } %>
     }
 
         <% if (haveFrag) { %>
-        OrderFragment orderFragment;
-        private void showOrderFragment()
+        <%= fragmentName %>Fragment childFragment;
+        private void show<%= fragmentName %>Fragment()
         {
-            orderFragment=OrderFragment.newInstance("test1");
+            childFragment=<%= fragmentName %>Fragment.newInstance("test1");
             getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.fragment_container,orderFragment)
+                    .replace(R.id.fragment_container,childFragment)
                     //.addToBackStack(fragmentProviders.getClass().getName())
                     .commit();
         }

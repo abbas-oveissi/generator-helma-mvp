@@ -17,18 +17,18 @@ import <%= appPackage %>.R;
  * Created by abbas.
  */
 
-public class OrderFragment extends Fragment {
+public class <%= fragmentName %>Fragment extends Fragment {
 
     private Activity activity;
     private View rootView;
-    private InteractorOrderFragment interactorOrderFragment;
+    private Interactor<%= fragmentName %>Fragment interactor<%= fragmentName %>Fragment;
     private String name;
 
     @BindView(R.id.tvFragmentName)
     TextView tvFragmentName;
 
-    public static OrderFragment newInstance(String name) {
-        OrderFragment fragmentProviders=new OrderFragment();
+    public static <%= fragmentName %>Fragment newInstance(String name) {
+        <%= fragmentName %>Fragment fragmentProviders=new <%= fragmentName %>Fragment();
         Bundle args = new Bundle();
         args.putString("name", name);
         fragmentProviders.setArguments(args);
@@ -47,60 +47,30 @@ public class OrderFragment extends Fragment {
 
     @Override
     public void onAttach(Context context) {
-        super.onAttach(context);
+      super.onAttach(context);
 
-        this.activity = getActivity();
-
-        if(!(activity instanceof InteractorOrderFragment))
-        {
-            throw new IllegalStateException("Activity does not implement InteractorOrderFragment") ;
+        if (context instanceof Activity){
+            this.activity=(Activity) context;
         }
 
-        else
-        {
-            interactorOrderFragment = (InteractorOrderFragment)activity ;
-        }
-    }
-
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-
-        this.activity = getActivity();
-
-        if(!(activity instanceof InteractorOrderFragment))
-        {
-            throw new IllegalStateException("Activity does not implement InteractorOrderFragment") ;
+        if (!(activity instanceof Interactor<%= fragmentName %>Fragment)) {
+          throw new IllegalStateException("Activity does not implement Interactor<%= fragmentName %>Fragment");
+        } else {
+            interactor<%= fragmentName %>Fragment = (Interactor<%= fragmentName %>Fragment) activity;
         }
 
-        else
-        {
-            interactorOrderFragment = (InteractorOrderFragment)activity ;
-        }
-    }
+      }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        rootView = inflater.inflate(R.layout.fragment_order, container, false);
-
-        ButterKnife.bind(this,rootView);
-
-        tvFragmentName.setText(name);
+        rootView = inflater.inflate(R.layout.fragment_<%= fragmentNameUnScored %>, container, false);
+         return rootView;
+      }
 
 
-        return rootView;
-    }
 
-
-    @Override
-    public void onResume()
-    {
-        super.onResume();
-    }
-
-
-    public interface InteractorOrderFragment  {
+    public interface Interactor<%= fragmentName %>Fragment  {
 
         void showOrders(String order) ;
 

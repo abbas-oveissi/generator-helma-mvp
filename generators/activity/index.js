@@ -74,11 +74,18 @@ module.exports = generator.extend({
       });
     }
 
-
+    if(this.options['frag']==true) {
+      prompts.push( {
+        name: 'fragname',
+        message: 'What is fragment name, like "UserBooks" ?',
+        store: true,
+      });
+    }
 
     return this.prompt(prompts).then(props => {
       this.props = props;
-      this.props.activityName = props.actname;
+    this.props.activityName = props.actname;
+    this.props.fragmentName = props.fragname;
       this.props.actvitiyPackageName = props.actpackage;
       this.props.listName = props.listname;
     });
@@ -88,6 +95,8 @@ module.exports = generator.extend({
     var packageDir = this.config.get("appPackage").replace(/\./g, '/');
     this.props.appPackage = this.config.get("appPackage");
     this.props.appName = this.config.get("appName");
+
+
     var sufixPackageDir = this.props.actvitiyPackageName.replace(/\./g, '/');
     var justNameUnderScore = this.props.activityName.replace(/\.?([A-Z]+)/g, function (x, y) {
       return "_" + y.toLowerCase()
@@ -96,6 +105,10 @@ module.exports = generator.extend({
     var justName = this.props.activityName;
     mkdirp('app/src/main/java/' + packageDir + '/features/' + sufixPackageDir);
     var fullpathToActivityPackage = 'app/src/main/java/' + packageDir + '/features/' + sufixPackageDir;
+
+
+
+
 
     this.props.haveList = false;
     this.props.haveFrag = false;
@@ -210,13 +223,21 @@ module.exports = generator.extend({
 
       }
       else if (this.options['frag'] == true) {
+
+        var justFragmentNameUnderScore = this.props.fragmentName.replace(/\.?([A-Z]+)/g, function (x, y) {
+          return "_" + y.toLowerCase()
+        }).replace(/^_/, "")
+        var justFragmentName = this.props.fragmentName;
+        this.props.fragmentNameUnScored = justFragmentNameUnderScore;
+
+
         this.props.haveList = false;
         this.props.haveFrag = true;
 
         this.fs.copyTpl(this.templatePath('category/fragment_order.xml'),
-          this.destinationPath('app/src/main/res/layout/fragment_order.xml'), this.props);
+          this.destinationPath('app/src/main/res/layout/fragment_' + justFragmentNameUnderScore + '.xml'), this.props);
         this.fs.copyTpl(this.templatePath('category/OrderFragment.java'),
-          this.destinationPath(fullpathToActivityPackage + '/OrderFragment.java'), this.props);
+          this.destinationPath(fullpathToActivityPackage + '/'+justFragmentName+'Fragment.java'), this.props);
 
 
       }
