@@ -1,3 +1,4 @@
+[![Join the chat at https://gitter.im/generator-helma-mvp/helma](https://badges.gitter.im/jupyterhub/helma.svg)](https://gitter.im/generator-helma-mvp/helma?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 # generator-helma-mvp
 > simple android mvp generator
 
