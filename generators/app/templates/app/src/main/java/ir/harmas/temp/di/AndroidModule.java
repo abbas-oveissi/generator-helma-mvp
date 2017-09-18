@@ -17,30 +17,30 @@ import <%= appPackage %>.<%= appName %>Application;
  */
 @Module
 public class AndroidModule {
-    int PRIVATE_MODE = 0;
+    private static final int PRIVATE_MODE=0;
 
     @Provides
     @Singleton
-    public Context provideContext(<%= appName %>Application application) {
+    public static Context provideContext(<%= appName %>Application application) {
         return application.getApplicationContext();
     }
 
     @Provides
     @Singleton
-    public Resources provideResources(<%= appName %>Application application) {
+    public static Resources provideResources(<%= appName %>Application application) {
         return application.getResources();
     }
 
     @Provides
     @Singleton
-    public SharedPreferences provideSharedPreferences(<%= appName %>Application application) {
+    public static SharedPreferences provideSharedPreferences(<%= appName %>Application application) {
         return PreferenceManager.getDefaultSharedPreferences(application);
     }
 
     @Provides
     @Named("UserSharedPref")
     @Singleton
-    public SharedPreferences provideUserSharedPreferences(<%= appName %>Application application) {
+    public static SharedPreferences provideUserSharedPreferences(<%= appName %>Application application) {
         return application.getSharedPreferences("UserSettings", PRIVATE_MODE);
     }
 }

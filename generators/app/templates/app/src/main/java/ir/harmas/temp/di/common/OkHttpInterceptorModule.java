@@ -15,7 +15,7 @@ public class OkHttpInterceptorModule {
 
     @Singleton
     @Provides
-    public HttpLoggingInterceptor provideHttpLoggingInterceptor() {
+    public static HttpLoggingInterceptor provideHttpLoggingInterceptor() {
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
         return logging;

@@ -31,7 +31,7 @@ public class RetrofitModule {
     @Provides
     @Singleton
     @Named("myApiRetrofit")
-    public Retrofit provideRetrofit(@Named("myApiBaseUrl") String baseUrl, Converter.Factory converterFactory, CallAdapter.Factory callAdapterFactory, OkHttpClient okHttpClient) {
+    public static Retrofit provideRetrofit(@Named("myApiBaseUrl") String baseUrl, Converter.Factory converterFactory, CallAdapter.Factory callAdapterFactory, OkHttpClient okHttpClient) {
         return new Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .addConverterFactory(converterFactory)
@@ -43,7 +43,7 @@ public class RetrofitModule {
 
     @Singleton
     @Provides
-    public OkHttpClient provideOkHttpClient(HttpLoggingInterceptor loggingInterceptor,
+    public static OkHttpClient provideOkHttpClient(HttpLoggingInterceptor loggingInterceptor,
                                             @Named("networkTimeoutInSeconds") int networkTimeoutInSeconds,
                                             @Named("isDebug") boolean isDebug,
                                             //@Named("cacheInterceptor") Interceptor cacheInterceptor,
@@ -69,7 +69,7 @@ public class RetrofitModule {
 
     @Provides
     @Singleton
-    public Cache provideCache(@Named("cacheDir") File cacheDir, @Named("cacheSize") long cacheSize) {
+    public static Cache provideCache(@Named("cacheDir") File cacheDir, @Named("cacheSize") long cacheSize) {
         Cache cache = null;
 
         try {
@@ -83,14 +83,14 @@ public class RetrofitModule {
 
     @Provides
     @Singleton
-    public CallAdapter.Factory provideRxJavaCallAdapterFactory() {
+    public static CallAdapter.Factory provideRxJavaCallAdapterFactory() {
         return RxJavaCallAdapterFactory.create();
     }
 
 
     @Provides
     @Singleton
-    public Converter.Factory provideGsonConverterFactory(Gson gson) {
+    public static Converter.Factory provideGsonConverterFactory(Gson gson) {
         return GsonConverterFactory.create(gson);
     }
 }

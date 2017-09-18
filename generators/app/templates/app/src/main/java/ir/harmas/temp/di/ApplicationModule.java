@@ -22,14 +22,14 @@ public final class ApplicationModule {
     @Provides
     @Singleton
     @Named("isDebug")
-    public boolean provideIsDebug() {
+    public static boolean provideIsDebug() {
         return BuildConfig.DEBUG;
     }
 
     @Provides
     @Singleton
     @Named("networkTimeoutInSeconds")
-    public int provideNetworkTimeoutInSeconds() {
+    public static int provideNetworkTimeoutInSeconds() {
         return 30;
     }
 
@@ -38,7 +38,7 @@ public final class ApplicationModule {
     @Provides
     @Singleton
     @Named("myApiBaseUrl")
-    public String provideMyEndpoint() {
+    public static String provideMyEndpoint() {
         return Constants.MY_BASE_URL;
     }
 
@@ -46,21 +46,21 @@ public final class ApplicationModule {
 
     @Provides
     @Singleton
-    public SchedulerProvider provideAppScheduler() {
+    public static SchedulerProvider provideAppScheduler() {
         return new SchedulerProviderImpl();
     }
 
     @Provides
     @Singleton
     @Named("cacheSize")
-    public long provideCacheSize() {
+    public static long provideCacheSize() {
         return 10 * 1024 * 1024; // 10 MB
     }
 
     @Provides
     @Singleton
     @Named("cacheDir")
-    public File provideCacheDir(Context context) {
+    public static File provideCacheDir(Context context) {
         return context.getCacheDir();
     }
 
@@ -69,7 +69,7 @@ public final class ApplicationModule {
 
 //    @Provides
 //    @Named("isConnected")
-//    public boolean provideIsConnected(Context context) {
+//    public static boolean provideIsConnected(Context context) {
 //        return Utils.isConnected(context);
 //    }
 

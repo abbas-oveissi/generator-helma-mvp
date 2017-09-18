@@ -18,7 +18,7 @@ public class ApiModule {
 
     @Provides
     @Singleton
-    public MyApi provideApiService(@Named("myApiRetrofit") Retrofit retrofit) {
+    public static MyApi provideApiService(@Named("myApiRetrofit") Retrofit retrofit) {
         return retrofit.create(MyApi.class);
     }
 

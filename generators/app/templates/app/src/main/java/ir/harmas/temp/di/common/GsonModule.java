@@ -14,7 +14,7 @@ import dagger.Provides;
 public class GsonModule {
     @Singleton
     @Provides
-    public Gson provideGson() {
+    public static Gson provideGson() {
         return new Gson();
     }
 }
