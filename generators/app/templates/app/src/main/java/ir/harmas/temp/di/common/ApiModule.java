@@ -8,7 +8,6 @@ import dagger.Module;
 import dagger.Provides;
 import <%= appPackage %>.interactors.remote.MyApi;
 import <%= appPackage %>.interactors.remote.MyApiService;
-import <%= appPackage %>.interactors.remote.MyApiServiceImpl;
 import retrofit2.Retrofit;
 
 /**
@@ -19,8 +18,8 @@ public class ApiModule {
 
     @Provides
     @Singleton
-    public MyApiService provideApiService(@Named("myApiRetrofit") Retrofit retrofit) {
-        return new MyApiServiceImpl(retrofit.create(MyApi.class));
+    public MyApi provideApiService(@Named("myApiRetrofit") Retrofit retrofit) {
+        return retrofit.create(MyApi.class);
     }
 
 }

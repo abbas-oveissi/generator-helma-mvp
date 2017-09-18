@@ -20,6 +20,7 @@ package <%= appPackage %>.features<%= actvitiyPackageName %>;
 import android.util.Log;
 
 import javax.inject.Inject;
+  import okhttp3.ResponseBody;
 
 import <%= appPackage %>.interactors.MyInteractor;
 import rx.Observer;
@@ -46,7 +47,7 @@ public class <%= activityName %>Presenter implements <%= activityName %>Contract
     public void getVideoDetailById() {
         Subscription subscription =
                 myInteractor.getNavigationDrawerItems()
-                        .subscribe(new Observer<String>() {
+                        .subscribe(new Observer<ResponseBody>() {
                             @Override
                             public void onCompleted() {
                                 Timber.d("onCompleted");
@@ -63,7 +64,7 @@ public class <%= activityName %>Presenter implements <%= activityName %>Contract
                             }
 
                             @Override
-                            public void onNext(String s) {
+                            public void onNext(ResponseBody s) {
                                 Timber.d("onNext");
                             }
                         });

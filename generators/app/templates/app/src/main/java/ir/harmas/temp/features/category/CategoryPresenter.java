@@ -22,6 +22,7 @@ import android.util.Log;
 import java.lang.ref.WeakReference;
 
 import javax.inject.Inject;
+  import okhttp3.ResponseBody;
 
 import <%= appPackage %>.interactors.MyInteractor;
 import rx.Observer;
@@ -47,7 +48,7 @@ public class CategoryPresenter implements CategoryContract.Presenter {
     public void getVideoDetailById() {
         Subscription subscription =
                 myInteractor.getNavigationDrawerItems()
-                        .subscribe(new Observer<String>() {
+                          .subscribe(new Observer<ResponseBody>() {
                             @Override
                             public void onCompleted() {
                                 Timber.d("onCompleted");
@@ -64,7 +65,7 @@ public class CategoryPresenter implements CategoryContract.Presenter {
                             }
 
                             @Override
-                            public void onNext(String s) {
+                            public void onNext(ResponseBody s) {
                                 Timber.d("onNext");
                             }
                         });

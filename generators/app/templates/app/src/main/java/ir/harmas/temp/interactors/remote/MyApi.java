@@ -1,6 +1,6 @@
 package <%= appPackage %>.interactors.remote;
 
-
+import okhttp3.ResponseBody;
 import retrofit2.http.GET;
 import rx.Observable;
 
@@ -8,7 +8,7 @@ import rx.Observable;
  * Created by Abbas on 30/04/16.
  */
 public interface MyApi {
-    //http://oveissi.ir/varzesh3/v2/navigation_drawer.php
-    @GET("/v2/navigation_drawer.php")
-    Observable<String> getNavigationDrawerItems();
+    //http://moviesapi.ir/api/v1/movies
+    @GET("/api/v1/movies")
+    Observable<ResponseBody> getNavigationDrawerItems();
 }
