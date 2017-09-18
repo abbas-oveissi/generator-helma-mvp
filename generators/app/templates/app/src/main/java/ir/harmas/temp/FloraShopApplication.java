@@ -8,7 +8,6 @@ import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
 import dagger.android.support.HasSupportFragmentInjector;
-import <%= appPackage %>.di.AndroidModule;
 import <%= appPackage %>.di.ApplicationComponent;
 import <%= appPackage %>.di.DaggerApplicationComponent;
 import timber.log.Timber;
@@ -29,7 +28,7 @@ public class <%= appName %>Application extends Application implements  HasActivi
     public void onCreate() {
         super.onCreate();
         component = DaggerApplicationComponent.builder()
-                  .androidModule(new AndroidModule(this))
+                  .application(this)
                   .build();
         component.inject(this);
 

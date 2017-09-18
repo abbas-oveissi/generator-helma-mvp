@@ -17,36 +17,30 @@ import <%= appPackage %>.<%= appName %>Application;
  */
 @Module
 public class AndroidModule {
-    private <%= appName %>Application weatherApplication;
     int PRIVATE_MODE = 0;
 
-
-    public AndroidModule(<%= appName %>Application weatherApplication) {
-        this.weatherApplication = weatherApplication;
+    @Provides
+    @Singleton
+    public Context provideContext(<%= appName %>Application application) {
+        return application.getApplicationContext();
     }
 
     @Provides
     @Singleton
-    public Context provideContext() {
-        return weatherApplication.getApplicationContext();
+    public Resources provideResources(<%= appName %>Application application) {
+        return application.getResources();
     }
 
     @Provides
     @Singleton
-    public Resources provideResources() {
-        return weatherApplication.getResources();
-    }
-
-    @Provides
-    @Singleton
-    public SharedPreferences provideSharedPreferences() {
-        return PreferenceManager.getDefaultSharedPreferences(weatherApplication);
+    public SharedPreferences provideSharedPreferences(<%= appName %>Application application) {
+        return PreferenceManager.getDefaultSharedPreferences(application);
     }
 
     @Provides
     @Named("UserSharedPref")
     @Singleton
-    public SharedPreferences provideUserSharedPreferences() {
-        return weatherApplication.getSharedPreferences("UserSettings", PRIVATE_MODE);
+    public SharedPreferences provideUserSharedPreferences(<%= appName %>Application application) {
+        return application.getSharedPreferences("UserSettings", PRIVATE_MODE);
     }
 }
