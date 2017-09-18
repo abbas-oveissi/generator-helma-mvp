@@ -1,13 +1,26 @@
 package <%= appPackage %>.di.common;
 
+import javax.inject.Singleton;
+
 import dagger.Module;
+import dagger.Provides;
+import okhttp3.logging.HttpLoggingInterceptor;
 
 /**
  * Created by Abbas on 26/06/16.
  */
 @Module
-public class InterceptorModule {
+public class OkHttpInterceptorModule {
     private static final String CACHE_CONTROL = "Cache-Control";
+
+    @Singleton
+    @Provides
+    public HttpLoggingInterceptor provideHttpLoggingInterceptor() {
+        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+        return logging;
+
+    }
 
 //    @Singleton
 //    @Provides
