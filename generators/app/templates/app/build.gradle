@@ -65,6 +65,9 @@ dependencies {
 
     compile rootProject.ext.libraries.dagger
     provided rootProject.ext.libraries.daggerCompiler
+    compile rootProject.ext.libraries.daggerAndroid
+    compile rootProject.ext.libraries.daggerSupportAndroid
+    apt rootProject.ext.libraries.daggerAndroidCompiler
 
     compile rootProject.ext.libraries.materialProgress
     compile rootProject.ext.libraries.timber

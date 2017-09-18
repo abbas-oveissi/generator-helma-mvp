@@ -14,11 +14,16 @@ import <%= appPackage %>.di.common.LoggerModule;
 import <%= appPackage %>.di.common.MyApiModule;
 import <%= appPackage %>.features.category.CategoryComponent;
 import <%= appPackage %>.features.category.CategoryPresenterModule;
-// helmamvp-needle-add-import-dagger-component
+import <%= appPackage %>.<%= appName %>Application;
+import dagger.android.AndroidInjectionModule;
+
 
 
 @Singleton
 @Component( modules = {
+        AndroidInjectionModule.class,
+        FragmentBuilder.class,
+        ActivityBuilder.class,
         AndroidModule.class,
         ApplicationModule.class,
         MyApiModule.class,
@@ -32,8 +37,6 @@ import <%= appPackage %>.features.category.CategoryPresenterModule;
         GsonModule.class
 })
 public interface ApplicationComponent {
-    CategoryComponent plus(CategoryPresenterModule module);
-
-    // helmamvp-needle-add-dagger-component
+    void inject(<%= appName %>Application application);
 }
 

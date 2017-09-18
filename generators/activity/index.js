@@ -118,8 +118,7 @@ module.exports = generator.extend({
 
     if (this.options['nav-support'] == true) {
 
-      this.fs.copyTpl(this.templatePath('category_nav_support/CategoryComponent.java'),
-        this.destinationPath(fullpathToActivityPackage + '/' + justName + 'Component.java'), this.props);
+
       this.fs.copyTpl(this.templatePath('category_nav_support/CategoryContract.java'),
         this.destinationPath(fullpathToActivityPackage + '/' + justName + 'Contract.java'), this.props);
       this.fs.copyTpl(this.templatePath('category_nav_support/CategoryPresenter.java'),
@@ -163,8 +162,7 @@ module.exports = generator.extend({
 
 
       //src folder
-      this.fs.copyTpl(this.templatePath('activity_nav_custom/src/MainActivityComponent.java'),
-        this.destinationPath(fullpathToActivityPackage + '/' + justName + 'Component.java'), this.props);
+
       this.fs.copyTpl(this.templatePath('activity_nav_custom/src/MainActivityContract.java'),
         this.destinationPath(fullpathToActivityPackage + '/' + justName + 'Contract.java'), this.props);
       this.fs.copyTpl(this.templatePath('activity_nav_custom/src/MainActivityPresenter.java'),
@@ -245,8 +243,6 @@ module.exports = generator.extend({
       // Copy template files
       this.fs.copyTpl(this.templatePath('category/CategoryActivity.java'),
         this.destinationPath(fullpathToActivityPackage + '/' + justName + 'Activity.java'), this.props);
-      this.fs.copyTpl(this.templatePath('category/CategoryComponent.java'),
-        this.destinationPath(fullpathToActivityPackage + '/' + justName + 'Component.java'), this.props);
       this.fs.copyTpl(this.templatePath('category/CategoryContract.java'),
         this.destinationPath(fullpathToActivityPackage + '/' + justName + 'Contract.java'), this.props);
       this.fs.copyTpl(this.templatePath('category/CategoryPresenter.java'),
@@ -281,28 +277,14 @@ module.exports = generator.extend({
     //
 
 
-    const fullPathComponent = 'app/src/main/java/' + packageDir + '/di/ApplicationComponent.java';
+    const fullPathComponent = 'app/src/main/java/' + packageDir + '/di/ActivityBuilder.java';
     try {
-      let act = justName + 'Component plus(' + justName + 'PresenterModule module);';
+      let act1 ='@ContributesAndroidInjector(modules = {'+justName+'PresenterModule.class})'
+      let act2 ='abstract '+justName+'Activity bind'+justName+'Activity();';
 
       AbbasUtils.rewriteFile({
         file: fullPathComponent,
-        needle: 'helmamvp-needle-add-dagger-component',
-        splicable: [
-          act
-        ]
-      }, this);
-    } catch (e) {
-      this.log(e.message);
-    }
-
-    try {
-      let act1 = 'import '+this.props.appPackage + '.features' + this.props.actvitiyPackageName + '.' + justName + 'Component;';
-      let act2 = 'import ' +this.props.appPackage +'.features' + this.props.actvitiyPackageName + '.' + justName + 'PresenterModule;';
-
-      AbbasUtils.rewriteFile({
-        file: fullPathComponent,
-        needle: 'helmamvp-needle-add-import-dagger-component',
+        needle: 'helmamvp-needle-add-dagger-activitycomponent',
         splicable: [
           act1
         ]
@@ -310,12 +292,37 @@ module.exports = generator.extend({
 
       AbbasUtils.rewriteFile({
         file: fullPathComponent,
-        needle: 'helmamvp-needle-add-import-dagger-component',
+        needle: 'helmamvp-needle-add-dagger-activitycomponent',
         splicable: [
           act2
         ]
       }, this);
 
+    } catch (e) {
+      this.log(e.message);
+    }
+
+    try {
+      let act1 = 'import ' +this.props.appPackage +'.features' + this.props.actvitiyPackageName + '.' + justName + 'PresenterModule;';
+      let act2 = 'import ' +this.props.appPackage +'.features' + this.props.actvitiyPackageName + '.' + justName + 'Activity;';
+
+
+      AbbasUtils.rewriteFile({
+        file: fullPathComponent,
+        needle: 'helmamvp-needle-add-import-dagger-activitycomponent',
+        splicable: [
+          act1
+        ]
+      }, this);
+
+
+      AbbasUtils.rewriteFile({
+        file: fullPathComponent,
+        needle: 'helmamvp-needle-add-import-dagger-activitycomponent',
+        splicable: [
+          act2
+        ]
+      }, this);
     } catch (e) {
       this.log(e.message);
     }

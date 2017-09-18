@@ -19,6 +19,7 @@ import android.support.v7.widget.Toolbar;
 import java.util.List;
 
 import javax.inject.Inject;
+import dagger.android.AndroidInjection;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -58,7 +59,7 @@ public class <%= activityName %>Activity extends BaseActivity implements <%= act
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        <%= appName %>Application.getComponent().plus(new <%= activityName %>PresenterModule()).inject(this);
+        AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_<%= activityNameUnScored %>);
         ButterKnife.bind(this);

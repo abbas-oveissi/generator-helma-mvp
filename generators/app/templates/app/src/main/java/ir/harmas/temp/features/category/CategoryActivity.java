@@ -10,6 +10,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import <%= appPackage %>.<%= appName %>Application;
 import <%= appPackage %>.R;
+import dagger.android.AndroidInjection;
 import <%= appPackage %>.pojo.Category;
 import <%= appPackage %>.utils.bases.BaseActivity;
 import <%= appPackage %>.utils.customview.LoadingLayout;
@@ -40,7 +41,7 @@ public class CategoryActivity extends BaseActivity implements CategoryContract.V
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        <%= appName %>Application.getComponent().plus(new CategoryPresenterModule()).inject(this);
+        AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
         ButterKnife.bind(this);
